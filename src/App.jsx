@@ -1,10 +1,15 @@
 import "./App.css";
+import Footer from "./pages/Footer";
+import Header from "./pages/Header";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <>
-      <p className="bg-red-400 font-bold">Hello World</p>
-    </>
+    <div className="">
+      <Header />
+      <Home />
+      <Footer />
+    </div>
   );
 }
 
