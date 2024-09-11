@@ -1,3 +1,6 @@
+import { FaUserTie } from "react-icons/fa6";
+import {LOGO_URL} from "../utils/constansts";
+
 const Header = () => {
   return (
     <header className="h-header">
@@ -6,11 +9,11 @@ const Header = () => {
           {/* App Icon */}
           <div className="flex items-center space-x-2">
             <img
-              src="path_to_your_app_icon.png" // Replace with your app icon path
+              src={LOGO_URL} // Replace with your app icon path
               alt="App Icon"
               className="w-8 h-8"
             />
-            <h1 className="text-xl font-semibold">Management System</h1>
+            <h1 className="text-xl font-semibold">Action Items</h1>
           </div>
 
           {/* Links */}
@@ -23,11 +26,7 @@ const Header = () => {
 
           {/* User Profile */}
           <div className="flex items-center space-x-3">
-            <img
-              src="path_to_profile_picture.png" // Replace with the user profile image path
-              alt="User Profile"
-              className="w-10 h-10 rounded-full"
-            />
+            <FaUserTie/>
             <span className="hidden md:block">Username</span>
           </div>
         </div>
