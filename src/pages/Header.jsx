@@ -1,5 +1,6 @@
 import { FaUserTie } from "react-icons/fa6";
 import {LOGO_URL} from "../utils/constansts";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -18,7 +19,7 @@ const Header = () => {
 
           {/* Links */}
           <nav className="hidden md:flex space-x-6">
-            <p className="hover:text-accent">Home</p>
+            <Link to="/"><p className="hover:text-accent">Home</p></Link>
             <p className="hover:text-accent">Dashboard</p>
             <p className="hover:text-accent">Reports</p>
             <p className="hover:text-accent">Settings</p>

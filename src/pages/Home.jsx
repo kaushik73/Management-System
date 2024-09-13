@@ -5,6 +5,8 @@ import Heading from "../wrapperTags/Heading";
 import Button from "../wrapperTags/Button";
 import Header from "./Header";
 import Footer from "./Footer";
+import ReportIssueCard from "../components/ReportIssueCard";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const theme = useSelector((store) => store.config.theme);
@@ -16,15 +18,15 @@ const Home = () => {
           <div className="flex flex-col h-content">
               <div className="flex-grow bg-gradient-to-b from-blue-600 to-purple-600">
                   {/* Header Section */}
-                  <header className="text-center py-20">
-                      <Heading type="h1" data="Hi, how can we help you?" className="text-4xl font-bold text-white" />
+                  <header className="text-center py-10">
+                      <Heading type="h1" data="Hi, how can we help you?" />
                       <div className="mt-8">
-                          <Input placeholder="Search for solutions, services and tickets" />
+                          <Link to="search"><Input placeholder="Search for solutions, services and tickets" /></Link>
                       </div>
                   </header>
 
                   {/* Card Section */}
-                  <section className="flex justify-center mt-10">
+                  <section className="flex justify-center mt-10 p-8">
                       <div className="w-3/4 bg-indigo-800 text-white p-6 rounded-lg shadow-md">
                           <div className="flex justify-between items-center">
                               <div>
@@ -37,9 +39,11 @@ const Home = () => {
                           </div>
                       </div>
                   </section>
+                  <ReportIssueCard/>
               </div>
+             
           </div>
-
+          
           <div>
               <Footer />
           </div>
