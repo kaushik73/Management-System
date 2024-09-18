@@ -34,7 +34,7 @@ const Home = () => {
                                   <p className="text-sm text-gray-300">Made with Love</p>
                               </div>
                               <div>
-                                  <Button size="large" />
+                                  <Link to="/tasklist"><Button size="large" /></Link>
                               </div>
                           </div>
                       </div>
