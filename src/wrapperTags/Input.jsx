@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Input = ({ type = 'text', placeholder = 'Search for solutions, services and tickets', name, value, onChange, className = 'px-4 py-3 w-96 rounded-lg shadow-md focus:outline-none' }) => {
+const Input = ({ type = 'text', placeholder, name, value, onChange, className = 'px-4 py-3 w-96 rounded-lg shadow-md focus:outline-none' }) => {
     return (
         <div>
             <input
