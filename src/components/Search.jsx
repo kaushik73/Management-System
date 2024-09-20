@@ -1,51 +1,83 @@
-import React, { useState } from 'react';
-import Home from '../pages/Home';
+import React, { useEffect, useState } from 'react';
 import Header from '../pages/Header';
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchTask, setSearchTask] = useState([]);
 
-  const articles = [
-    'How to fix screen sharing issue on teams in Ubuntu',
-    'IT Policies and Procedures',
-    'OpenVPN Configuration',
-    'Finding Basic info about your computer',
-    'Steps to configure OpenVPN'
-  ];
+  
+  useEffect(() => {
+    const fetchTasks = async () => {
+      try {
+        const response = await fetch(`https://localhost:7084/api/Report/searchTask?searchItem=${searchQuery}`);
+  
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        setSearchTask(data);
+        console.log(data); 
+      } catch (err) {
+        console.error('Fetch error:', err); 
+      }
+    };
+    if (searchQuery) {
+      fetchTasks();
+    }
+  }, [searchQuery]);
 
-  const filteredArticles = articles.filter((article) =>
-    article.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  
 
   return (
     <>
-        <div>
-            <Header/>
+      <div>
+        <Header />
+      </div>
+      <div className="help-component p-6">
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Search for solutions, services and tickets"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full p-2 text-lg rounded-md border border-gray-300"
+          />
         </div>
-       <div className="help-component p-6">
-            <div className="search-bar">
-                <input
-                type="text"
-                placeholder="Search for solutions, services and tickets"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full p-2 text-lg rounded-md border border-gray-300"
-                />
-            </div>
+      </div>
 
-            <div className="popular-articles mt-5">
-                <h3 className="text-xl font-semibold">Popular Articles</h3>
-                <ul className="list-none pl-0">
-                {filteredArticles.map((article, index) => (
-                    <li key={index} className="mb-2">
-                    <a href="/" className="text-blue-600 no-underline hover:underline">
-                        {article}
-                    </a>
-                    </li>
-                ))}
-                </ul>
-            </div>
-        </div>
+      {searchTask && searchQuery  &&  < div className="container mx-auto p-4">
+        <h1 className="text-2xl font-bold mb-4">Task List</h1>
+        <form>
+          <table className="min-w-full bg-white border border-gray-300">
+            <thead>
+              <tr>
+                <th className="border px-4 py-2">Task ID</th>
+                <th className="border px-4 py-2">Subject</th>
+                <th className="border px-4 py-2">Description</th>
+                <th className="border px-4 py-2">Priority</th>
+                <th className="border px-4 py-2">Status</th>
+                <th className="border px-4 py-2">Due Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {searchTask.map((task, index) => (
+                <tr key={index}>
+                  <td className="border px-4 py-2 text-center">{task.taskId}</td>
+                  <td className="border px-4 py-2">{task.subject}</td>
+                  <td className="border px-4 py-2">{task.description}</td>
+                  <td className="border px-4 py-2 text-center">{task.priority}</td>
+                  <td className="border px-4 py-2 text-center">
+                    {task.status === 0 ? 'Pending' : 'Completed'}
+                  </td>
+                  <td className="border px-4 py-2 text-center">
+                    {new Date(task.dueDate).toLocaleDateString()}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </form>
+      </div>}
     </>
   );
 };
