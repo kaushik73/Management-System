@@ -8,7 +8,6 @@ const Button = ({
     size = 'medium', 
     ...props 
 }) => {
-    console.log('gyan',className);
     const getSizeClass = (size) => {
         switch(size) {
             case 'small':
@@ -21,8 +20,6 @@ const Button = ({
                 return 'py-2 px-4 text-base'; 
         }
     };
-
-   console.log('Gyan',onClick)
 
     return (
         <button 

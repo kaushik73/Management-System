@@ -12,7 +12,7 @@ const TaskList = () => {
     useEffect(() => {
       const fetchTasks = async () => {
         try {
-          const response = await fetch("https://localhost:7084/api/Report/GetAllTask");
+          const response = await fetch("https://localhost:44329/api/Report/GetAllTask");
   
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
@@ -43,7 +43,6 @@ const TaskList = () => {
                 task.subject.toLowerCase().includes(value.toLowerCase()) ||
                 task.description.toLowerCase().includes(value.toLowerCase())
             );
-          console.log(filtered)
           setFilterTask(filtered);
         }
       };
@@ -59,7 +58,6 @@ const TaskList = () => {
   
     return (
       <>
-        <Header />
         <div className="help-component p-6">
         <div className="search-bar">
           <input

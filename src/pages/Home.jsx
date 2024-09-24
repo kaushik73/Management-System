@@ -12,9 +12,7 @@ const Home = () => {
   const theme = useSelector((store) => store.config.theme);
   return (
     <>
-          <div>
-              <Header />
-          </div>
+         
           <div className="flex flex-col h-content">
               <div className="flex-grow bg-gradient-to-b from-blue-600 to-purple-600">
                   {/* Header Section */}
@@ -42,10 +40,6 @@ const Home = () => {
                   <ReportIssueCard/>
               </div>
              
-          </div>
-          
-          <div>
-              <Footer />
           </div>
       </>
 

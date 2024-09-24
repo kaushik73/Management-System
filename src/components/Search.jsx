@@ -30,9 +30,6 @@ const Search = () => {
 
   return (
     <>
-      <div>
-        <Header />
-      </div>
       <div className="help-component p-6">
         <div className="search-bar">
           <input
