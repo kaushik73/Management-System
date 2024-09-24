@@ -26,7 +26,6 @@ const RequestForm = () => {
   };
 
   const handleSubmit = async (values, { setSubmitting }) => {
-    console.log('Gyan',values);
     setSubmitting(true);
 
     try {
@@ -49,18 +48,15 @@ const RequestForm = () => {
 
   return (
     <>
-      <div className="p-1">
-        <Header />
-      </div>
       <Formik
   initialValues={initialValues}
   validationSchema={validationSchema}
   onSubmit={handleSubmit}
 >
   {({ isSubmitting }) => (
-    <Form className="max-w-lg mx-auto p-4 bg-white shadow-lg rounded-lg">
+    <Form className="max-w-lg mx-auto p-4 bg-white shadow-lg rounded-lg my-2">
       {/* Requester */}
-      <div className="mb-4">
+      <div className="mb-4 ">
         <label htmlFor="requester" className="block text-gray-700">
           Requester *
         </label>

@@ -4,29 +4,32 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RequestForm from "./RequestForm";
 import Search from "./Search";
 import TaskList from "./TaskList";
+import BaseLayout from "../components/BaseLayout"
 
 const AppLayout = ()=> {
 
     const appRouter = createBrowserRouter([
         {
-            path : "/",
-            element : <Home/>
-        },
-        {
-            path : "header",
-            element : <Header/>
-        },
-        {
-            path : "requestForm",
-            element : <RequestForm/>
-        },
-        {
-            path : "search",
-            element : <Search/>
-        },
-        {
-            path : "tasklist",
-            element : <TaskList/>
+          path: "/",
+          element: <BaseLayout />,  
+          children: [
+            {
+              path: "/",           
+              element: <Home />
+            },
+            {
+              path: "requestForm",  
+              element: <RequestForm />
+            },
+            {
+              path: "search",       
+              element: <Search />
+            },
+            {
+              path: "tasklist",     
+              element: <TaskList />
+            }
+          ]
         }
       ]);
     return (
