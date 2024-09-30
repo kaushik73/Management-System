@@ -16,12 +16,12 @@ const Home = () => {
           <div className="flex flex-col h-content">
               <div className="flex-grow bg-gradient-to-b from-blue-600 to-purple-600">
                   {/* Header Section */}
-                  <header className="text-center py-10">
+                  <div className="text-center py-10">
                       <Heading type="h1" data="Hi, how can we help you?" />
                       <div className="mt-8">
                           <Link to="search"><Input placeholder="Search for solutions, services and tickets" /></Link>
                       </div>
-                  </header>
+                  </div>
 
                   {/* Card Section */}
                   <section className="flex justify-center mt-10 p-8">

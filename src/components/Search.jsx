@@ -16,7 +16,6 @@ const Search = () => {
         }
         const data = await response.json();
         setSearchTask(data);
-        console.log(data); 
       } catch (err) {
         console.error('Fetch error:', err); 
       }
@@ -30,8 +29,8 @@ const Search = () => {
 
   return (
     <>
-      <div className="help-component p-6">
-        <div className="search-bar">
+      <div className="h-content mx-[20%] my-[2%]">
+        <div className="">
           <input
             type="text"
             placeholder="Search for solutions, services and tickets"

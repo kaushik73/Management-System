@@ -5,6 +5,8 @@ import RequestForm from "./RequestForm";
 import Search from "./Search";
 import TaskList from "./TaskList";
 import BaseLayout from "../components/BaseLayout"
+import SignIn from "../pages/SignIn";
+import SignUp from "../pages/SignUp";
 
 const AppLayout = ()=> {
 
@@ -28,7 +30,15 @@ const AppLayout = ()=> {
             {
               path: "tasklist",     
               element: <TaskList />
-            }
+            },
+            {
+                path: "signup",     
+                element: <SignUp/>
+              },
+              {
+                path: "signin",     
+                element: <SignIn/>
+              }
           ]
         }
       ]);

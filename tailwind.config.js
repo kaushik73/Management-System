@@ -11,9 +11,9 @@ export default {
         light: "#F3F4F6", // Light background color
       },
       height: {
-        header: "30px", // Custom height for the header
+        header: "50px", // Custom height for the header
         footer: "110px", // Custom height for the footer
-        content: "calc(100vh - 140px)", // Full viewport height minus header and footer
+        content: "calc(100vh - 160px)", // Full viewport height minus header and footer
       },
     },
   },
