@@ -6,6 +6,9 @@ import Input from "../wrapperTags/Input";
 import Heading from "../wrapperTags/Heading";
 import { signUpValidations } from "../utils/Formvalidations";
 import FormError from "../wrapperTags/FormError";
+import ClickableLink from "../wrapperTags/ClickableLink";
+import { Link } from "react-router-dom";
+import Button from "../wrapperTags/Button";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -25,6 +28,7 @@ const SignUp = () => {
     } catch (error) {
       console.error("Error:", error);
     } finally {
+      // todo : add things here  which are need @gyani
     }
   };
   const initialValues = {
@@ -42,10 +46,10 @@ const SignUp = () => {
   });
 
   return (
-    <div className="flex-grow bg-gradient-to-b from-blue-600 to-purple-600 h-content">
+    <div className="flex bg-gradient-to-b from-blue-600 to-purple-600 h-content">
       <form
         onSubmit={formik.handleSubmit}
-        className="flex flex-col justify-center items-center gap-4"
+        className=" w-[45%] mx-auto bg-red-400 p-2 m-8 rounded-lg  flex flex-col justify-center items-center gap-4"
       >
         <Heading data="Sign Up" type="heading" />
 
@@ -108,12 +112,14 @@ const SignUp = () => {
           touched={formik.touched.cpassword}
         />
 
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded"
-        >
-          Submit
-        </button>
+        <div className="w-full flex justify-center gap-2 items-center">
+          <Button type="submit" size="medium">
+            Sign Up
+          </Button>
+          <Link to={"/signin"}>
+            <ClickableLink>Already a User? Sign In</ClickableLink>
+          </Link>
+        </div>
       </form>
     </div>
   );
