@@ -1,19 +1,18 @@
 import Header from "../pages/Header";
 import Footer from "../pages/Footer";
 import AppLayout from "./AppLayout";
-import { Outlet } from 'react-router-dom';
+import { Outlet } from "react-router-dom";
 const BaseLayout = () => {
-
-    return (
-        <>
-          <Header className="flex flex-col min-h-screen" />
-          <main className="flex-grow">
-        {/* Outlet will render the matched route component */}
+  return (
+    <>
+      <Header  />
+      <main className="">
         <Outlet />
       </main>
-          <Footer/>
-        </>
-      );
-}
+
+      <Footer />
+    </>
+  );
+};
 
 export default BaseLayout;

@@ -10,6 +10,23 @@ import FormError from "../wrapperTags/FormError";
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showCPassword, setShowCPassword] = useState(false);
+
+  const handleSubmit = async (values) => {
+    try {
+      const res = await fetch("https://localhost:44329/api/Auth/AddUser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      const data = await res.json();
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+    }
+  };
   const initialValues = {
     name: "",
     email: "",
@@ -20,12 +37,12 @@ const SignUp = () => {
     initialValues,
     validationSchema: Yup.object(signUpValidations),
     onSubmit: (values) => {
-      console.log("Form Data", values);
+      handleSubmit(values);
     },
   });
 
   return (
-    <div className="flex  rounded-xl	 justify-center items-center w-[35%] m-auto bg-gradient-to-b from-blue-600 to-purple-600 p-3">
+    <div className="flex-grow bg-gradient-to-b from-blue-600 to-purple-600 h-content">
       <form
         onSubmit={formik.handleSubmit}
         className="flex flex-col justify-center items-center gap-4"
@@ -74,7 +91,7 @@ const SignUp = () => {
           <Input
             type={showCPassword ? "text" : "password"}
             name="cpassword"
-            placeholder="Enter Confirm Password"
+            placeholder="Confirm Password"
             value={formik.values.cpassword}
             onChange={formik.handleChange}
           />

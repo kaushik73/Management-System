@@ -21,7 +21,7 @@ const SignIn = () => {
   });
 
   return (
-    <div className="flex   rounded-xl	 justify-center items-center w-[35%] m-auto bg-gradient-to-b from-blue-600 to-purple-600 p-3">
+    <div className="flex   rounded-xl	 justify-center items-center w-[35%] m-auto bg-gradient-to-b from-blue-600 to-purple-600 h-content">
       <form
         onSubmit={formik.handleSubmit}
         className="flex flex-col justify-center items-center gap-4"
