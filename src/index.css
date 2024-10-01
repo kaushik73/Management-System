@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Ensure that padding and border are included in the element’s total width and height */
+  margin: 0;
+  padding: 0;
+}

@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
-import Button from "../wrapperTags/Button"
-import RequestForm from './RequestForm';
-import { Link } from 'react-router-dom'; 
+import React, { useState } from "react";
+import Button from "../wrapperTags/Button";
+import RequestForm from "./RequestForm";
+import { Link } from "react-router-dom";
+import ClickableLink from "../wrapperTags/ClickableLink";
 
 const ReportIssueCard = () => {
-  const[showForm, setShowForm] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
   const handleRequestForm = () => {
-    setShowForm(true); 
-  }
+    setShowForm(true);
+  };
   return (
     <div className="flex justify-center items-center ">
       <div className="bg-white shadow-md rounded-lg p-2 flex items-center space-x-2">
@@ -23,7 +24,9 @@ const ReportIssueCard = () => {
           </svg>
         </div>
         <div>
-          <Link to="/requestform"><Button type='large' children='Report an issue Having trouble?' className='text-gray-500' /></Link>
+          <Link to="/requestform">
+            <ClickableLink>Report an issue Having trouble?</ClickableLink>
+          </Link>
         </div>
       </div>
     </div>

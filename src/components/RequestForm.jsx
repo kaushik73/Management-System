@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import Header from "../pages/Header";
-import Footer from "../pages/Footer";
+import RequiredStarField from "./RequiredStarField";
+import Heading from "../wrapperTags/Heading";
 
 const RequestForm = () => {
   const [response, setResponse] = useState(null);
@@ -49,7 +49,7 @@ const RequestForm = () => {
   return (
     <>
       <div className="min-h-content flex justify-center items-center h-screen flex-col">
-      <h1 class="text-2xl font-bold">Report an Issue</h1>
+        <Heading data="Report an Issue" type="heading" />
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
@@ -60,7 +60,7 @@ const RequestForm = () => {
               {/* Requester */}
               <div className="mb-4 ">
                 <label htmlFor="requester" className="block text-gray-700">
-                  Requester *
+                  Requester <RequiredStarField />
                 </label>
                 <Field
                   name="requester"
@@ -78,7 +78,7 @@ const RequestForm = () => {
               {/* Subject */}
               <div className="mb-4">
                 <label htmlFor="subject" className="block text-gray-700">
-                  Subject *
+                  Subject <RequiredStarField />
                 </label>
                 <Field
                   name="subject"
@@ -96,7 +96,7 @@ const RequestForm = () => {
               {/* Status */}
               <div className="mb-4">
                 <label htmlFor="status" className="block text-gray-700">
-                  Status *
+                  Status <RequiredStarField />
                 </label>
                 <Field
                   as="select"
@@ -117,7 +117,7 @@ const RequestForm = () => {
               {/* Priority */}
               <div className="mb-4">
                 <label htmlFor="priority" className="block text-gray-700">
-                  Priority *
+                  Priority <RequiredStarField />
                 </label>
                 <Field
                   as="select"
@@ -138,7 +138,7 @@ const RequestForm = () => {
               {/* Description */}
               <div className="mb-4">
                 <label htmlFor="description" className="block text-gray-700">
-                  Description *
+                  Description <RequiredStarField />
                 </label>
                 <Field
                   as="textarea"

@@ -5,6 +5,9 @@ import { IoEye, IoEyeOff } from "react-icons/io5";
 import Input from "../wrapperTags/Input";
 import Heading from "../wrapperTags/Heading";
 import { signInValidations } from "../utils/Formvalidations";
+import { Link } from "react-router-dom";
+import ClickableLink from "../wrapperTags/ClickableLink";
+import Button from "../wrapperTags/Button";
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -16,15 +19,14 @@ const SignIn = () => {
   const formik = useFormik({
     initialValues,
     validationSchema: Yup.object(signInValidations),
-    onSubmit: (values) => {
-    },
+    onSubmit: (values) => {},
   });
 
   return (
-    <div className="flex   rounded-xl	 justify-center items-center w-[35%] m-auto bg-gradient-to-b from-blue-600 to-purple-600 h-content">
+    <div className="flex bg-gradient-to-b from-blue-600 to-purple-600 h-content">
       <form
         onSubmit={formik.handleSubmit}
-        className="flex flex-col justify-center items-center gap-4"
+        className=" w-[45%]  mx-auto bg-red-400 p-2 m-8 rounded-lg  flex flex-col justify-center items-center gap-4"
       >
         <Heading data="Sign In" type="heading" />
         <Input
@@ -67,13 +69,14 @@ const SignIn = () => {
         {formik.errors.password && formik.touched.password && (
           <div className="text-red-500">{formik.errors.password}</div>
         )}
-
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded"
-        >
-          Sign In
-        </button>
+        <div className="w-full flex justify-center gap-2 items-center">
+          <Button size="medium" type="submit">
+            Sign In
+          </Button>
+          <Link to={"/signup"}>
+            <ClickableLink>New User? Sign up</ClickableLink>
+          </Link>
+        </div>
       </form>
     </div>
   );
